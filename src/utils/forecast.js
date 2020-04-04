@@ -11,7 +11,15 @@ const forecast = (address, callback)=>{
             callback('Unable to find Location. Try new search.', undefined)
         }
         else{
-            callback(undefined, body.current.weather_descriptions + '. It is '+ body.current.temperature+ ' degrees. There is a '+ body.current.precip+'% chance of rain')
+            callback(undefined, 'The weather condition is ' + body.current.weather_descriptions +'. '+
+                 'The temperature is ' + body.current.temperature + ' degrees. '+
+                 'It feels like '+body.current.feelslike+' degrees. '+
+                 'The wind speed is '+body.current.wind_speed+' kph. '+
+                'The wind direction is '+body.current.wind_dir+'. '+
+                'The humidity is '+body.current.humidity+'%. '+
+                'Precipitation is '+body.current.precip+' cm. '+
+                 'The UV index is '+body.current.uv_index+'. '
+            )
         }
     })
 
